@@ -14,11 +14,13 @@ use MyVendor\MyProject\Annotation\AnnotationA;
 use MyVendor\MyProject\Annotation\AnnotationB;
 use MyVendor\MyProject\Annotation\AnnotationC;
 use MyVendor\MyProject\Annotation\AnnotationD;
+use MyVendor\MyProject\Annotation\AnnotationRedirect;
 use MyVendor\MyProject\Annotation\AnnotationReturn;
 use MyVendor\MyProject\Interceptor\InterceptorA;
 use MyVendor\MyProject\Interceptor\InterceptorB;
 use MyVendor\MyProject\Interceptor\InterceptorC;
 use MyVendor\MyProject\Interceptor\InterceptorD;
+use MyVendor\MyProject\Interceptor\InterceptorRedirect;
 use MyVendor\MyProject\Interceptor\InterceptorReturn;
 use MyVendor\MyProject\Logger\Logger;
 use MyVendor\MyProject\Logger\LoggerInterface;
@@ -60,6 +62,12 @@ class AppModule extends AbstractAppModule
             $this->matcher->subclassesOf(ResourceObject::class),
             $this->matcher->annotatedWith(AnnotationReturn::class),
             [InterceptorReturn::class],
+        );
+
+        $this->bindInterceptor(
+            $this->matcher->subclassesOf(ResourceObject::class),
+            $this->matcher->annotatedWith(AnnotationRedirect::class),
+            [InterceptorRedirect::class],
         );
 
         (new Dotenv())->load(dirname(__DIR__, 2));

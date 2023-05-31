@@ -85,3 +85,17 @@ php ./bin/page.php get /abrcd
 2023-05-31 09:30:57 MyVendor\MyProject\Interceptor\InterceptorB::MyVendor\MyProject\Interceptor\InterceptorB::invoke (after)
 2023-05-31 09:30:57 MyVendor\MyProject\Interceptor\InterceptorA::MyVendor\MyProject\Interceptor\InterceptorA::invoke (after)
 ```
+
+---
+
+```bash
+php ./bin/page.php get /abr2cd
+```
+
+```text
+2023-05-31 23:32:00 MyVendor\MyProject\Interceptor\InterceptorA::MyVendor\MyProject\Interceptor\InterceptorA::invoke (before)
+2023-05-31 23:32:00 MyVendor\MyProject\Interceptor\InterceptorB::MyVendor\MyProject\Interceptor\InterceptorB::invoke (before)
+2023-05-31 23:32:00 MyVendor\MyProject\Interceptor\InterceptorRedirect::MyVendor\MyProject\Interceptor\InterceptorRedirect::invoke
+2023-05-31 23:32:00 MyVendor\MyProject\Interceptor\InterceptorB::MyVendor\MyProject\Interceptor\InterceptorB::invoke (after)
+2023-05-31 23:32:00 MyVendor\MyProject\Interceptor\InterceptorA::MyVendor\MyProject\Interceptor\InterceptorA::invoke (after)
+```
